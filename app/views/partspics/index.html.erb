@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Partspics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+      <th>Game</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @partspics.each do |partspic| %>
+      <tr>
+        <td><%= partspic.name %></td>
+        <td><%= partspic.url %></td>
+        <td><%= partspic.game %></td>
+        <td><%= link_to 'Show', partspic %></td>
+        <td><%= link_to 'Edit', edit_partspic_path(partspic) %></td>
+        <td><%= link_to 'Destroy', partspic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Partspic', new_partspic_path %>

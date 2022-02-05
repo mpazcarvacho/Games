@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gamepics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+      <th>Game</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gamepics.each do |gamepic| %>
+      <tr>
+        <td><%= gamepic.name %></td>
+        <td><%= gamepic.url %></td>
+        <td><%= gamepic.game %></td>
+        <td><%= link_to 'Show', gamepic %></td>
+        <td><%= link_to 'Edit', edit_gamepic_path(gamepic) %></td>
+        <td><%= link_to 'Destroy', gamepic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gamepic', new_gamepic_path %>

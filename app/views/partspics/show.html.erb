@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @partspic.name %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @partspic.url %>
+</p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @partspic.game %>
+</p>
+
+<%= link_to 'Edit', edit_partspic_path(@partspic) %> |
+<%= link_to 'Back', partspics_path %>
