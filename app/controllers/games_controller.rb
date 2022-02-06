@@ -4,6 +4,10 @@ class GamesController < ApplicationController
   # GET /games or /games.json
   def index
     @games = Game.all
+    @board = Gamepic.all
+    @parts = Partspic.all
+    @rules = Rule.all
+
   end
 
   # GET /games/1 or /games/1.json
@@ -13,6 +17,9 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
+    @board = Gamepic.all
+    @parts = Partspic.all
+    @rules = Rule.all
   end
 
   # GET /games/1/edit
@@ -65,6 +72,8 @@ class GamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def game_params
-      params.require(:game).permit(:name, :description, :ages, :players)
+      params.require(:game).permit(:name, :description, :ages, :players, 
+        {partspic_attributes: [:id, :name, :url, {pics: []}, :_destroy]}, {gamepic_attributes: [:id, :name, :url, :image, :_destroy]}, 
+        {rule_attribures: [:id, :name, :rules_text, :pdf, :_destroy]})
     end
 end

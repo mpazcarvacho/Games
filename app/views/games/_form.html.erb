@@ -31,6 +31,31 @@
     <%= form.text_field :players %>
   </div>
 
+  <h3>Picture of the board</h3>
+  <div class="field">
+    <%= form.fields_for :gamepics do |f| %>
+      <%= render 'gamepic_fields', f: f %>
+    <% end %>
+  </div>
+
+  <h3>Pictures of the pieces</h3>
+  <div class="field">
+    <%= form.fields_for :partspics do |f| %>
+      <%= render 'partspic_fields', f: f %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= link_to_add_association 'Add parts', form, :partspics %>
+  </div>
+
+  <h3>Rules</h3>
+  <div class="field">
+    <%= form.fields_for :rules do |f| %>
+      <%= render 'rule_fields', f: f %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
